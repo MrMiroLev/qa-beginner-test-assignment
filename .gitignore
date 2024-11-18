@@ -1,0 +1,15 @@
+*.log
+*.csv
+*.tmp
+*.html
+
+.vscode
+.env*
+
+node_modules
+
+# env.json
+package-lock.json
+
+/test-report/*
+!/test-report/.gitignore

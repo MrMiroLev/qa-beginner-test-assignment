@@ -1,0 +1,24 @@
+{
+    "name": "qa-beginner-test-assigment",
+    "version": "1.0.0",
+    "description": "api test",
+    "scripts": {
+        "test": "jest",
+        "test_unit": "jest src/unit_tests/"
+    },
+    "author": "vinter-man",
+    "devDependencies": {
+        "@types/chai": "^4.3.14",
+        "@types/jest": "^29.5.12",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.12.7",
+        "axios": "^1.6.8",
+        "axios-mock-adapter": "^1.22.0",
+        "jest": "^29.7.0",
+        "jest-stare": "^2.5.1",
+        "ts-jest": "^29.2.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {}
+}
