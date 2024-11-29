@@ -5,8 +5,13 @@ on:
     inputs:
       EXPECTED_ID_TEST_1:
         type: number
-        description: "Enter expected id"
+        description: 'Enter expected id for TEST_1'
         default: 1
+        required: true
+      EXPECTED_ID_TEST_2:
+        type: number
+        description: 'Enter expected id for TEST_2'
+        default: 2
         required: true
 
 jobs:
@@ -24,13 +29,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Update EXPECTED_ID_TEST_1 in JSON file
+      - name: Update EXPECTED_ID_TEST_1 and EXPECTED_ID_TEST_2 in JSON file
         run: |
           echo "Starting the workflow to update values in JSON file"
           echo "New EXPECTED_ID_TEST_1 value is: ${{ github.event.inputs.EXPECTED_ID_TEST_1 }}"
-          
+          echo "New EXPECTED_ID_TEST_2 value is: ${{ github.event.inputs.EXPECTED_ID_TEST_2 }}"
+
           sed -i "s/\"EXPECTED_ID_TEST_1\": [0-9]\+/\"EXPECTED_ID_TEST_1\": ${{ github.event.inputs.EXPECTED_ID_TEST_1 }}/" ./env.json
-          
+
+          sed -i "s/\"EXPECTED_ID_TEST_2\": [0-9]\+/\"EXPECTED_ID_TEST_2\": ${{ github.event.inputs.EXPECTED_ID_TEST_2 }}/" ./env.json
+
           cat ./env.json
 
       - name: Run tests
